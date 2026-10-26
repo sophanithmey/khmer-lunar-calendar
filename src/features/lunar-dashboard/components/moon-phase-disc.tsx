@@ -130,12 +130,8 @@ export function MoonPhaseDisc({
       {fraction >= 0.4 && (
         <circle cx={cx - 1} cy={cy - 2} r="1.5" fill="rgba(100, 116, 139, 0.15)" />
       )}
-      {fraction >= 0.7 && (
-        <circle cx={cx + 3} cy={cy + 2} r="2" fill="rgba(100, 116, 139, 0.12)" />
-      )}
-      {fraction >= 0.95 && (
-        <circle cx={cx} cy={cy + 4} r="1" fill="#FFFFFF" opacity="0.9" />
-      )}
+      {fraction >= 0.7 && <circle cx={cx + 3} cy={cy + 2} r="2" fill="rgba(100, 116, 139, 0.12)" />}
+      {fraction >= 0.95 && <circle cx={cx} cy={cy + 4} r="1" fill="#FFFFFF" opacity="0.9" />}
     </svg>
   );
 }

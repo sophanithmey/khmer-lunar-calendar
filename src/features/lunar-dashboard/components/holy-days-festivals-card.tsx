@@ -133,75 +133,71 @@ export function HolyDaysFestivalsCard() {
 
         {/* Content List */}
         <div className="space-y-2.5">
-          {activeTab === 'sil' ? (
-            holyDays.map((item, idx) => (
-              <div
-                key={idx}
-                className="group flex items-center justify-between p-3 rounded-2xl bg-[#0B1930]/85 hover:bg-[#142A4D]/70 border border-white/5 hover:border-[#E8BF70]/30 transition-all duration-200 shadow-sm"
-              >
-                <div className="flex items-center gap-3.5 min-w-0">
-                  <div className="w-10 h-10 rounded-xl bg-[#142A4D] border border-[#E8BF70]/30 flex items-center justify-center shrink-0 shadow-inner group-hover:scale-105 transition-transform">
-                    <MoonPhaseDisc
-                      day={item.day}
-                      isWaxing={item.isWaxing}
-                      size={24}
-                      glow={item.day === 15}
-                    />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-sm font-extrabold text-[#F4F3EF] leading-snug">
-                      {item.title}{' '}
-                      <span className="text-xs font-normal text-[#E8BF70]">
-                        • {item.khmerType}
-                      </span>
-                    </div>
-                    <p className="text-[11px] text-[#A9B8CC] truncate mt-0.5">
-                      {item.desc}
-                    </p>
-                  </div>
-                </div>
-
-                <span
-                  className={`text-[10px] px-2.5 py-1 rounded-full border shrink-0 font-bold ml-2 ${item.tagStyle}`}
-                >
-                  {item.tag}
-                </span>
-              </div>
-            ))
-          ) : (
-            festivals.map((fest, idx) => {
-              const Icon = fest.icon;
-              return (
+          {activeTab === 'sil'
+            ? holyDays.map((item, idx) => (
                 <div
                   key={idx}
-                  className="group flex items-start justify-between p-3 rounded-2xl bg-[#0B1930]/85 hover:bg-[#142A4D]/70 border border-white/5 hover:border-[#E8BF70]/30 transition-all duration-200 shadow-sm"
+                  className="group flex items-center justify-between p-3 rounded-2xl bg-[#0B1930]/85 hover:bg-[#142A4D]/70 border border-white/5 hover:border-[#E8BF70]/30 transition-all duration-200 shadow-sm"
                 >
-                  <div className="flex items-start gap-3 min-w-0">
-                    <div className="w-9 h-9 rounded-xl bg-[#142A4D] border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
-                      <Icon className="w-4 h-4 text-[#E8BF70]" />
+                  <div className="flex items-center gap-3.5 min-w-0">
+                    <div className="w-10 h-10 rounded-xl bg-[#142A4D] border border-[#E8BF70]/30 flex items-center justify-center shrink-0 shadow-inner group-hover:scale-105 transition-transform">
+                      <MoonPhaseDisc
+                        day={item.day}
+                        isWaxing={item.isWaxing}
+                        size={24}
+                        glow={item.day === 15}
+                      />
                     </div>
                     <div className="min-w-0">
-                      <div className="text-sm font-bold text-[#F4F3EF] leading-snug">
-                        {fest.title}
+                      <div className="text-sm font-extrabold text-[#F4F3EF] leading-snug">
+                        {item.title}{' '}
+                        <span className="text-xs font-normal text-[#E8BF70]">
+                          • {item.khmerType}
+                        </span>
                       </div>
-                      <div className="text-xs text-[#E8BF70] font-medium mt-0.5">
-                        {fest.timing}
-                      </div>
-                      <p className="text-[11px] text-[#A9B8CC] line-clamp-1 mt-0.5">
-                        {fest.desc}
-                      </p>
+                      <p className="text-[11px] text-[#A9B8CC] truncate mt-0.5">{item.desc}</p>
                     </div>
                   </div>
 
                   <span
-                    className={`text-[10px] px-2 py-0.5 rounded-full border shrink-0 font-bold ml-2 ${fest.color}`}
+                    className={`text-[10px] px-2.5 py-1 rounded-full border shrink-0 font-bold ml-2 ${item.tagStyle}`}
                   >
-                    {fest.tag}
+                    {item.tag}
                   </span>
                 </div>
-              );
-            })
-          )}
+              ))
+            : festivals.map((fest, idx) => {
+                const Icon = fest.icon;
+                return (
+                  <div
+                    key={idx}
+                    className="group flex items-start justify-between p-3 rounded-2xl bg-[#0B1930]/85 hover:bg-[#142A4D]/70 border border-white/5 hover:border-[#E8BF70]/30 transition-all duration-200 shadow-sm"
+                  >
+                    <div className="flex items-start gap-3 min-w-0">
+                      <div className="w-9 h-9 rounded-xl bg-[#142A4D] border border-white/10 flex items-center justify-center shrink-0 mt-0.5">
+                        <Icon className="w-4 h-4 text-[#E8BF70]" />
+                      </div>
+                      <div className="min-w-0">
+                        <div className="text-sm font-bold text-[#F4F3EF] leading-snug">
+                          {fest.title}
+                        </div>
+                        <div className="text-xs text-[#E8BF70] font-medium mt-0.5">
+                          {fest.timing}
+                        </div>
+                        <p className="text-[11px] text-[#A9B8CC] line-clamp-1 mt-0.5">
+                          {fest.desc}
+                        </p>
+                      </div>
+                    </div>
+
+                    <span
+                      className={`text-[10px] px-2 py-0.5 rounded-full border shrink-0 font-bold ml-2 ${fest.color}`}
+                    >
+                      {fest.tag}
+                    </span>
+                  </div>
+                );
+              })}
         </div>
       </div>
 
@@ -211,9 +207,7 @@ export function HolyDaysFestivalsCard() {
           <span className="text-amber-400">🪷</span>
           <span className="italic">ឧបោសថសីល និងសមាទានសីល ៤ លើកក្នុងមួយខែ</span>
         </div>
-        <span className="text-[#E8BF70] font-semibold text-[11px]">
-          ពុទ្ធសាសនា
-        </span>
+        <span className="text-[#E8BF70] font-semibold text-[11px]">ពុទ្ធសាសនា</span>
       </div>
     </div>
   );

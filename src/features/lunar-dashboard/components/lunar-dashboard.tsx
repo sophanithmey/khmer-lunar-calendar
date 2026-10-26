@@ -39,16 +39,10 @@ export function LunarDashboard({
       {/* SECTION 1: TOP ROW (Lunar Cycle Overview + Current Astronomy Card) */}
       <section aria-label="Lunar Overview" className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         <div className="lg:col-span-7 xl:col-span-7">
-          <LunarCycleOverviewCard
-            khmerInfo={khmerInfo}
-            onSelectLunarDay={handleSelectLunarDay}
-          />
+          <LunarCycleOverviewCard khmerInfo={khmerInfo} onSelectLunarDay={handleSelectLunarDay} />
         </div>
         <div className="lg:col-span-5 xl:col-span-5">
-          <CurrentDayAstronomyCard
-            khmerInfo={khmerInfo}
-            astroInfo={astroInfo}
-          />
+          <CurrentDayAstronomyCard khmerInfo={khmerInfo} astroInfo={astroInfo} />
         </div>
       </section>
 
@@ -58,9 +52,7 @@ export function LunarDashboard({
         className="grid grid-cols-1 md:grid-cols-2 gap-6"
       >
         <HolyDaysFestivalsCard />
-        <KhmerMonthsCard
-          currentMonthIndex={khmerInfo.monthIndex}
-        />
+        <KhmerMonthsCard currentMonthIndex={khmerInfo.monthIndex} />
       </section>
     </div>
   );

@@ -70,18 +70,12 @@ export function LunarCycleOverviewCard({
       {/* Stats Summary Pills Row */}
       <div className="grid grid-cols-3 gap-3 my-5">
         <div className="px-3.5 py-3 rounded-2xl bg-[#0B1930]/80 border border-white/5 text-center shadow-sm">
-          <span className="text-xs text-[#A9B8CC] block mb-1 font-medium">
-            ខ្នើត (កើត)
-          </span>
+          <span className="text-xs text-[#A9B8CC] block mb-1 font-medium">ខ្នើត (កើត)</span>
           <span className="text-sm sm:text-base font-bold text-[#F4F3EF]">1 - 15</span>
         </div>
         <div className="px-3.5 py-3 rounded-2xl bg-[#0B1930]/80 border border-white/5 text-center shadow-sm">
-          <span className="text-xs text-[#A9B8CC] block mb-1 font-medium">
-            រោច (រោច)
-          </span>
-          <span className="text-sm sm:text-base font-bold text-[#F4F3EF]">
-            1 - {waningTotal}
-          </span>
+          <span className="text-xs text-[#A9B8CC] block mb-1 font-medium">រោច (រោច)</span>
+          <span className="text-sm sm:text-base font-bold text-[#F4F3EF]">1 - {waningTotal}</span>
         </div>
         <div className="px-3.5 py-3 rounded-2xl bg-[#142A4D]/50 border border-[#E8BF70]/25 text-center shadow-sm">
           <span className="text-xs text-[#E8BF70] block mb-1 font-medium">
@@ -140,9 +134,7 @@ export function LunarCycleOverviewCard({
                 <span className="w-2 h-2 rounded-full bg-[#E8BF70] inline-block" />
                 ខ្នើត (កើត) ១ ដល់ ១៥
               </span>
-              <span className="text-[11px] text-[#A9B8CC]">
-                ចន្ទវង្ក → ពេញបូណ៌មី (១៥ កើត 🌕)
-              </span>
+              <span className="text-[11px] text-[#A9B8CC]">ចន្ទវង្ក → ពេញបូណ៌មី (១៥ កើត 🌕)</span>
             </div>
 
             {/* Spacious responsive grid (8 cols desktop / 5 cols mobile) */}
@@ -252,7 +244,8 @@ export function LunarCycleOverviewCard({
       {/* Footer Cultural / Astronomical Note */}
       <div className="mt-5 pt-3.5 border-t border-white/10 flex items-center justify-between text-xs text-[#A9B8CC]">
         <p className="italic">
-          ខែ{khmerInfo.monthNameKm} មាន {totalDays} ថ្ងៃ (ថ្ងៃពេញបូណ៌មី ១៥ កើត និងថ្ងៃដាច់ខែ {waningTotal} រោច)
+          ខែ{khmerInfo.monthNameKm} មាន {totalDays} ថ្ងៃ (ថ្ងៃពេញបូណ៌មី ១៥ កើត និងថ្ងៃដាច់ខែ{' '}
+          {waningTotal} រោច)
         </p>
         <span className="text-[#E8BF70] text-xs font-semibold shrink-0 hidden sm:inline">
           ចន្ទគតិខ្មែរ

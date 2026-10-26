@@ -36,7 +36,9 @@ export function LunarDayCell({ dayInfo, isSelected, onSelect }: LunarDayCellProp
       {/* Top row: Gregorian day & Sil badge */}
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center gap-1">
-          <span className={`text-[10px] sm:text-xs font-semibold ${isToday ? 'text-[#E8BF70] font-bold' : 'text-[#A9B8CC]'}`}>
+          <span
+            className={`text-[10px] sm:text-xs font-semibold ${isToday ? 'text-[#E8BF70] font-bold' : 'text-[#A9B8CC]'}`}
+          >
             {solarDay}
           </span>
           {isToday && (
@@ -44,7 +46,10 @@ export function LunarDayCell({ dayInfo, isSelected, onSelect }: LunarDayCellProp
               <span className="hidden sm:inline-flex px-1 py-0.5 text-[9px] font-bold rounded bg-[#E8BF70]/20 text-[#E8BF70] border border-[#E8BF70]/40 leading-none">
                 {language === 'km' ? 'ថ្ងៃនេះ' : 'Today'}
               </span>
-              <span className="sm:hidden w-1.5 h-1.5 rounded-full bg-[#E8BF70] shadow-sm animate-pulse" title="ថ្ងៃនេះ" />
+              <span
+                className="sm:hidden w-1.5 h-1.5 rounded-full bg-[#E8BF70] shadow-sm animate-pulse"
+                title="ថ្ងៃនេះ"
+              />
             </>
           )}
         </div>

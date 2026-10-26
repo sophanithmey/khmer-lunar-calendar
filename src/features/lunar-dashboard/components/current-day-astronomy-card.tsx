@@ -8,10 +8,7 @@ interface CurrentDayAstronomyCardProps {
   astroInfo: MoonAstronomyInfo;
 }
 
-export function CurrentDayAstronomyCard({
-  khmerInfo,
-  astroInfo
-}: CurrentDayAstronomyCardProps) {
+export function CurrentDayAstronomyCard({ khmerInfo, astroInfo }: CurrentDayAstronomyCardProps) {
   const isWaxing = khmerInfo.moonPhase === 'waxing';
   const illumPct = astroInfo.illuminationPct;
   const fraction = illumPct / 100;

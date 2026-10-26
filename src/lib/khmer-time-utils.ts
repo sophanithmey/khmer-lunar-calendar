@@ -31,15 +31,7 @@ export const SOLAR_MONTHS_EN = [
   'December'
 ];
 
-export const DAYS_OF_WEEK_KM = [
-  'អាទិត្យ',
-  'ច័ន្ទ',
-  'អង្គារ',
-  'ពុធ',
-  'ព្រហស្បតិ៍',
-  'សុក្រ',
-  'សៅរ៍'
-];
+export const DAYS_OF_WEEK_KM = ['អាទិត្យ', 'ច័ន្ទ', 'អង្គារ', 'ពុធ', 'ព្រហស្បតិ៍', 'សុក្រ', 'សៅរ៍'];
 
 export const DAYS_OF_WEEK_EN = [
   'Sunday',

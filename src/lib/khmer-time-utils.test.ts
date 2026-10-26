@@ -1,9 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import {
-  getKhmerDayPeriod,
-  getKhmerTimeInfo,
-  getKhmerSolarDateString
-} from './khmer-time-utils';
+import { getKhmerDayPeriod, getKhmerTimeInfo, getKhmerSolarDateString } from './khmer-time-utils';
 
 describe('khmer-time-utils', () => {
   it('correctly categorizes day periods across 24 hours', () => {

@@ -34,7 +34,7 @@ export function MoonCanvasFallback({
     const height = canvas.height;
     const centerX = width / 2;
     const centerY = height / 2;
-    const radius = Math.min(width, height) * 0.40;
+    const radius = Math.min(width, height) * 0.4;
 
     ctx.clearRect(0, 0, width, height);
 
@@ -63,13 +63,7 @@ export function MoonCanvasFallback({
 
     if (imageLoaded && moonImgRef.current) {
       // Draw photographic textured moon
-      ctx.drawImage(
-        moonImgRef.current,
-        centerX - radius,
-        centerY - radius,
-        radius * 2,
-        radius * 2
-      );
+      ctx.drawImage(moonImgRef.current, centerX - radius, centerY - radius, radius * 2, radius * 2);
     } else {
       // High-detail procedural backup if image is still loading
       const moonGrad = ctx.createRadialGradient(

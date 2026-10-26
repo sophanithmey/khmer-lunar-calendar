@@ -159,9 +159,7 @@ export function KhmerMonthsCard({
               <Moon className="w-5 h-5 text-[#E8BF70]" />
             </div>
             <div>
-              <h3 className="text-base font-bold text-[#F4F3EF] leading-snug">
-                ខែចន្ទគតិខ្មែរ
-              </h3>
+              <h3 className="text-base font-bold text-[#F4F3EF] leading-snug">ខែចន្ទគតិខ្មែរ</h3>
               <p className="text-xs text-[#A9B8CC]">12 Lunar Months Cycle</p>
             </div>
           </div>

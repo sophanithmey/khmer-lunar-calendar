@@ -1,7 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <circle cx="32" cy="32" r="30" fill="#0B1930" stroke="#E8BF70" stroke-width="2"/>
-  <path d="M32 4C47.464 4 60 16.536 60 32C60 47.464 47.464 60 32 60C24.5 60 21 50 21 32C21 14 24.5 4 32 4Z" fill="#E8BF70" opacity="0.9"/>
-  <circle cx="26" cy="22" r="3" fill="#0B1930" opacity="0.3"/>
-  <circle cx="38" cy="36" r="4" fill="#0B1930" opacity="0.3"/>
-  <circle cx="28" cy="42" r="2.5" fill="#0B1930" opacity="0.3"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#142A4D"/>
+      <stop offset="60%" stop-color="#0B1930"/>
+      <stop offset="100%" stop-color="#071426"/>
+    </radialGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCE6A4"/>
+      <stop offset="50%" stop-color="#E8BF70"/>
+      <stop offset="100%" stop-color="#C59B27"/>
+    </linearGradient>
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCE6A4" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#E8BF70" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#9A7316" stop-opacity="0.4"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background Base Circle -->
+  <circle cx="256" cy="256" r="240" fill="url(#bgGrad)"/>
+  <circle cx="256" cy="256" r="240" stroke="url(#borderGrad)" stroke-width="10"/>
+
+  <!-- Subtle Outer Aura -->
+  <circle cx="256" cy="256" r="210" fill="none" stroke="#E8BF70" stroke-width="2" stroke-dasharray="6 8" opacity="0.4"/>
+
+  <!-- Main Lunar Moon Crescent / Phase -->
+  <g filter="url(#glow)">
+    <path d="M256 56 C366.457 56 456 145.543 456 256 C456 366.457 366.457 456 256 456 C202.5 456 177.5 385 177.5 256 C177.5 127 202.5 56 256 56 Z" fill="url(#goldGrad)"/>
+  </g>
+
+  <!-- Traditional Lunar Craters -->
+  <circle cx="213" cy="185" r="21" fill="#0B1930" opacity="0.32"/>
+  <circle cx="298" cy="288" r="28" fill="#0B1930" opacity="0.32"/>
+  <circle cx="227" cy="331" r="18" fill="#0B1930" opacity="0.32"/>
+  <circle cx="270" cy="150" r="14" fill="#0B1930" opacity="0.25"/>
+  <circle cx="340" cy="220" r="16" fill="#0B1930" opacity="0.25"/>
+
+  <!-- Sacred Decorative Stars / Points -->
+  <circle cx="110" cy="190" r="3.5" fill="#E8BF70" opacity="0.75"/>
+  <circle cx="140" cy="350" r="4.5" fill="#E8BF70" opacity="0.6"/>
+  <circle cx="390" cy="140" r="4" fill="#E8BF70" opacity="0.8"/>
+  <circle cx="115" cy="270" r="3" fill="#E8BF70" opacity="0.5"/>
 </svg>

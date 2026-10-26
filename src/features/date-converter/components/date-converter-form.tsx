@@ -148,11 +148,7 @@ export function DateConverterForm() {
     for (let i = 0; i < 366; i++) {
       const d = addDays(start, i);
       const info = KhmerLunarCalendarService.getKhmerDate(d);
-      if (
-        info.monthIndex === khMonthIdx &&
-        info.moonPhase === khPhase &&
-        info.day === khDay
-      ) {
+      if (info.monthIndex === khMonthIdx && info.moonPhase === khPhase && info.day === khDay) {
         matched = d;
         break;
       }
@@ -448,7 +444,9 @@ export function DateConverterForm() {
 
                   <div className="text-center font-bold text-sm text-[#0F1E36] dark:text-[#F4F3EF]">
                     <span>ខែ{SOLAR_MONTHS_KM[calMonth]}</span>{' '}
-                    <span>ឆ្នាំ{toKhmerNumeral(calYear)} ({calYear})</span>
+                    <span>
+                      ឆ្នាំ{toKhmerNumeral(calYear)} ({calYear})
+                    </span>
                   </div>
 
                   <button
@@ -513,7 +511,9 @@ export function DateConverterForm() {
                                 : 'text-[#5D6B82] dark:text-[#A9B8CC]'
                           }`}
                         >
-                          {dayLunar.isObservanceDay ? '🪷សីល' : `${toKhmerNumeral(dayLunar.day)}${dayLunar.moonPhase === 'waxing' ? 'កើត' : 'រោច'}`}
+                          {dayLunar.isObservanceDay
+                            ? '🪷សីល'
+                            : `${toKhmerNumeral(dayLunar.day)}${dayLunar.moonPhase === 'waxing' ? 'កើត' : 'រោច'}`}
                         </span>
                       </button>
                     );
@@ -709,7 +709,9 @@ export function DateConverterForm() {
             </div>
 
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0F1E36] dark:text-[#F4F3EF] leading-snug tracking-tight">
-              ថ្ងៃ{result.dayOfWeekNameKm} {toKhmerNumeral(result.day)} {result.moonPhaseNameKm} ខែ{result.monthNameKm} ឆ្នាំ{result.animalYearNameKm} {result.sakNameKm} ព.ស. {toKhmerNumeral(result.beYear)}
+              ថ្ងៃ{result.dayOfWeekNameKm} {toKhmerNumeral(result.day)} {result.moonPhaseNameKm} ខែ
+              {result.monthNameKm} ឆ្នាំ{result.animalYearNameKm} {result.sakNameKm} ព.ស.{' '}
+              {toKhmerNumeral(result.beYear)}
             </h2>
 
             <p className="text-sm sm:text-base text-[#5D6B82] dark:text-[#A9B8CC] font-medium flex items-center gap-2 pt-1">

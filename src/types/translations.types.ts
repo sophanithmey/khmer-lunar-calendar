@@ -91,4 +91,19 @@ export interface Translations {
     rights: string;
     traditionalQuote: string;
   };
+  pwa: {
+    installApp: string;
+    installDescription: string;
+    installBtn: string;
+    laterBtn: string;
+    offlineBadge: string;
+    offlineNotice: string;
+    onlineNotice: string;
+    updateAvailable: string;
+    reloadBtn: string;
+    iosInstallTitle: string;
+    iosInstallInstruction: string;
+    installedNotice: string;
+    close: string;
+  };
 }

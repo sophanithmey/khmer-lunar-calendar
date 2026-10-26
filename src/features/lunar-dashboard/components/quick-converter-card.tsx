@@ -54,11 +54,7 @@ export function QuickConverterCard({
     for (let i = 0; i < 366; i++) {
       const d = addDays(start, i);
       const info = KhmerLunarCalendarService.getKhmerDate(d);
-      if (
-        info.monthIndex === khMonthIdx &&
-        info.moonPhase === khPhase &&
-        info.day === khDay
-      ) {
+      if (info.monthIndex === khMonthIdx && info.moonPhase === khPhase && info.day === khDay) {
         matchedDate = d;
         break;
       }
@@ -69,9 +65,18 @@ export function QuickConverterCard({
   };
 
   const KHMER_MONTHS_NAMES = [
-    'មិគសិរ', 'បុស្ស', 'មាឃ', 'ផល្គុន',
-    'ចេត្រ', 'ពិសាខ', 'ជេស្ឋ', 'អាសាឍ',
-    'ស្រាពណ៍', 'ភទ្របទ', 'អស្សុជ', 'កត្តិក'
+    'មិគសិរ',
+    'បុស្ស',
+    'មាឃ',
+    'ផល្គុន',
+    'ចេត្រ',
+    'ពិសាខ',
+    'ជេស្ឋ',
+    'អាសាឍ',
+    'ស្រាពណ៍',
+    'ភទ្របទ',
+    'អស្សុជ',
+    'កត្តិក'
   ];
 
   return (
@@ -87,9 +92,7 @@ export function QuickConverterCard({
               <ArrowRightLeft className="w-5 h-5 text-[#E8BF70]" />
             </div>
             <div>
-              <h3 className="text-base font-bold text-[#F4F3EF] leading-snug">
-                បម្លែងកាលបរិច្ឆេទ
-              </h3>
+              <h3 className="text-base font-bold text-[#F4F3EF] leading-snug">បម្លែងកាលបរិច្ឆេទ</h3>
               <p className="text-xs text-[#A9B8CC]">Gregorian ↔ Khmer Lunar</p>
             </div>
           </div>
@@ -174,7 +177,9 @@ export function QuickConverterCard({
             <div className="grid grid-cols-2 gap-2">
               {/* Day Selector (1 - 15) */}
               <div>
-                <label className="text-[10px] text-[#A9B8CC] block mb-1">ចំនួនថ្ងៃ (Day 1-15)</label>
+                <label className="text-[10px] text-[#A9B8CC] block mb-1">
+                  ចំនួនថ្ងៃ (Day 1-15)
+                </label>
                 <select
                   value={khDay}
                   onChange={(e) => setKhDay(parseInt(e.target.value, 10))}
@@ -276,13 +281,16 @@ export function QuickConverterCard({
             {/* Details */}
             <div className="flex-1 min-w-0">
               <div className="text-base font-extrabold text-[#F4F3EF] leading-snug truncate">
-                ថ្ងៃ {convertedInfo.dayOfWeekNameKm} {toKhmerNumeral(convertedInfo.day)} {convertedInfo.moonPhaseNameKm}
+                ថ្ងៃ {convertedInfo.dayOfWeekNameKm} {toKhmerNumeral(convertedInfo.day)}{' '}
+                {convertedInfo.moonPhaseNameKm}
               </div>
               <div className="text-xs text-[#E8BF70] font-semibold mt-0.5">
-                ខែ{convertedInfo.monthNameKm} ឆ្នាំ{convertedInfo.animalYearNameKm} {convertedInfo.sakNameKm}
+                ខែ{convertedInfo.monthNameKm} ឆ្នាំ{convertedInfo.animalYearNameKm}{' '}
+                {convertedInfo.sakNameKm}
               </div>
               <div className="text-[11px] text-[#A9B8CC] mt-0.5">
-                ពុទ្ធសករាជ {toKhmerNumeral(convertedInfo.beYear)} ({formatSolarDate(activeDate, 'km')})
+                ពុទ្ធសករាជ {toKhmerNumeral(convertedInfo.beYear)} (
+                {formatSolarDate(activeDate, 'km')})
               </div>
             </div>
 

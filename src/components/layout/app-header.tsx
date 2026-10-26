@@ -1,14 +1,25 @@
 import { useState } from 'react';
-import { Menu, X, Globe, Moon } from 'lucide-react';
+import { Menu, X, Globe, Moon, Download, WifiOff } from 'lucide-react';
 import { useLanguage } from '../../hooks/use-language';
 import { AppNavigation } from './app-navigation';
 
 interface AppHeaderProps {
   activeTab: string;
   onTabChange: (tabId: string) => void;
+  isInstallable?: boolean;
+  isInstalled?: boolean;
+  isOffline?: boolean;
+  onInstallClick?: () => void;
 }
 
-export function AppHeader({ activeTab, onTabChange }: AppHeaderProps) {
+export function AppHeader({
+  activeTab,
+  onTabChange,
+  isInstallable = false,
+  isInstalled = false,
+  isOffline = false,
+  onInstallClick
+}: AppHeaderProps) {
   const { language, toggleLanguage, t } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -45,8 +56,33 @@ export function AppHeader({ activeTab, onTabChange }: AppHeaderProps) {
           <AppNavigation activeTab={activeTab} onTabChange={handleSelectTab} />
         </div>
 
-        {/* Actions: Language Toggle & Mobile Hamburger */}
-        <div className="flex items-center gap-2.5">
+        {/* Actions: Install, Offline Badge, Language Toggle & Mobile Hamburger */}
+        <div className="flex items-center gap-2 sm:gap-2.5">
+          {/* Offline Badge */}
+          {isOffline && (
+            <span
+              title={t.pwa.offlineNotice}
+              className="flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-300 text-xs font-medium"
+            >
+              <WifiOff className="w-3.5 h-3.5 text-amber-400" />
+              <span className="hidden sm:inline">{t.pwa.offlineBadge}</span>
+            </span>
+          )}
+
+          {/* Install Button (Desktop & Mobile header) */}
+          {isInstallable && !isInstalled && onInstallClick && (
+            <button
+              type="button"
+              onClick={onInstallClick}
+              title={t.pwa.installApp}
+              aria-label={t.pwa.installApp}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-[#E8BF70]/20 to-[#C59B27]/20 hover:from-[#E8BF70]/30 hover:to-[#C59B27]/30 text-xs font-semibold text-[#E8BF70] border border-[#E8BF70]/40 transition-all active:scale-95 cursor-pointer shadow-sm"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span className="hidden md:inline">{t.pwa.installApp}</span>
+            </button>
+          )}
+
           <button
             type="button"
             onClick={toggleLanguage}
@@ -70,8 +106,25 @@ export function AppHeader({ activeTab, onTabChange }: AppHeaderProps) {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-white/10 bg-[#071426] px-4 py-4 space-y-2 animate-in slide-in-from-top duration-200">
+        <div className="lg:hidden border-t border-white/10 bg-[#071426] px-4 py-4 space-y-3 animate-in slide-in-from-top duration-200">
           <AppNavigation activeTab={activeTab} onTabChange={handleSelectTab} isMobile />
+
+          {/* Mobile Install Option */}
+          {isInstallable && !isInstalled && onInstallClick && (
+            <div className="pt-2 border-t border-white/10">
+              <button
+                type="button"
+                onClick={() => {
+                  onInstallClick();
+                  setMobileMenuOpen(false);
+                }}
+                className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-gradient-to-r from-[#E8BF70] to-[#C59B27] text-[#071426] font-bold text-sm shadow-md transition-all active:scale-95 cursor-pointer"
+              >
+                <Download className="w-4 h-4" />
+                <span>{t.pwa.installApp}</span>
+              </button>
+            </div>
+          )}
         </div>
       )}
     </header>

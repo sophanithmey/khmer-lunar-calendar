@@ -16,7 +16,7 @@ function checkWebGLSupport(): boolean {
     const canvas = document.createElement('canvas');
     return Boolean(
       window.WebGLRenderingContext &&
-        (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
+      (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
     );
   } catch {
     return false;
@@ -46,7 +46,11 @@ export function MoonScene({ phaseDegrees, illuminationPct, className = '' }: Moo
 
     let renderer: THREE.WebGLRenderer;
     try {
-      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
+      renderer = new THREE.WebGLRenderer({
+        antialias: true,
+        alpha: true,
+        powerPreference: 'high-performance'
+      });
     } catch {
       setHasWebGL(false);
       return;
@@ -253,7 +257,11 @@ export function MoonScene({ phaseDegrees, illuminationPct, className = '' }: Moo
           onClick={() => setIsRotating((prev) => !prev)}
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#0B1930]/80 hover:bg-[#142A4D] border border-white/10 text-xs font-medium text-[#A9B8CC] hover:text-[#E8BF70] transition-colors cursor-pointer shadow-sm"
         >
-          {isRotating ? <Pause className="w-3 h-3 text-[#E8BF70]" /> : <Play className="w-3 h-3 text-[#E8BF70]" />}
+          {isRotating ? (
+            <Pause className="w-3 h-3 text-[#E8BF70]" />
+          ) : (
+            <Play className="w-3 h-3 text-[#E8BF70]" />
+          )}
           <span>{isRotating ? 'ផ្អាកបង្វិល' : 'បង្វិលស្វ័យប្រវត្តិ'}</span>
         </button>
 

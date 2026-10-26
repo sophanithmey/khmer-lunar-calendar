@@ -93,5 +93,22 @@ export const enTranslations: Translations = {
       'Chan Khmer is an interactive portal bridging traditional Cambodian lunar reckoning with modern astronomical science.',
     rights: 'All rights reserved',
     traditionalQuote: 'Understanding the moon preserves our ancestors wisdom'
+  },
+  pwa: {
+    installApp: 'Install App',
+    installDescription:
+      'Install "Chan Khmer" to your home screen for quick access and full offline lunar calendar calculation',
+    installBtn: 'Install Now',
+    laterBtn: 'Later',
+    offlineBadge: 'Offline Mode',
+    offlineNotice: 'Running offline — Khmer lunar calendar is fully functional without internet',
+    onlineNotice: 'Back online',
+    updateAvailable: 'A new version of Chan Khmer is available',
+    reloadBtn: 'Reload',
+    iosInstallTitle: 'How to install on iOS',
+    iosInstallInstruction:
+      'Tap the Share button in Safari, then scroll down and tap "Add to Home Screen"',
+    installedNotice: 'App installed successfully',
+    close: 'Close'
   }
 };

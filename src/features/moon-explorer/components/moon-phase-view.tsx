@@ -4,7 +4,11 @@ import type { KhmerDayInfo } from '../../lunar-calendar/types/lunar-date.types';
 import { useLanguage } from '../../../hooks/use-language';
 import { MoonCanvasFallback } from './moon-canvas-fallback';
 import { DateTimeline } from './date-timeline';
-import { formatIllumination, formatDistanceKm, formatShortSolarDate } from '../../../lib/formatters';
+import {
+  formatIllumination,
+  formatDistanceKm,
+  formatShortSolarDate
+} from '../../../lib/formatters';
 import { toKhmerNumeral } from '../../lunar-calendar/utils/khmer-numerals';
 import { Compass, Info, CalendarDays, Sliders } from 'lucide-react';
 
@@ -115,8 +119,7 @@ export function MoonPhaseView({
         <div className="flex items-center justify-between gap-2 min-w-[620px]">
           {LUNAR_PHASES.map((p) => {
             const isSelected =
-              Math.abs(activeDegrees - p.deg) < 22.5 ||
-              (p.deg === 0 && activeDegrees >= 337.5);
+              Math.abs(activeDegrees - p.deg) < 22.5 || (p.deg === 0 && activeDegrees >= 337.5);
             return (
               <button
                 key={p.deg}
@@ -136,9 +139,7 @@ export function MoonPhaseView({
                 >
                   {p.nameKm}
                 </span>
-                <span className="text-[9px] text-slate-400 font-mono mt-0.5">
-                  {p.deg}&deg;
-                </span>
+                <span className="text-[9px] text-slate-400 font-mono mt-0.5">{p.deg}&deg;</span>
               </button>
             );
           })}
@@ -163,16 +164,10 @@ export function MoonPhaseView({
                   />
                 }
               >
-                <MoonScene
-                  phaseDegrees={activeDegrees}
-                  illuminationPct={activeIllumPct}
-                />
+                <MoonScene phaseDegrees={activeDegrees} illuminationPct={activeIllumPct} />
               </Suspense>
             ) : (
-              <MoonCanvasFallback
-                phaseDegrees={activeDegrees}
-                illuminationPct={activeIllumPct}
-              />
+              <MoonCanvasFallback phaseDegrees={activeDegrees} illuminationPct={activeIllumPct} />
             )}
           </div>
 
@@ -227,7 +222,8 @@ export function MoonPhaseView({
             <div className="text-xs text-[#5D6B82] dark:text-[#A9B8CC] flex items-center gap-2">
               <CalendarDays className="w-3.5 h-3.5 text-[#9A7316] dark:text-[#E8BF70]" />
               <span>
-                ថ្ងៃ {toKhmerNumeral(khmerInfo.day)} {khmerInfo.moonPhaseNameKm} ខែ{khmerInfo.monthNameKm} ឆ្នាំ{khmerInfo.animalYearNameKm}
+                ថ្ងៃ {toKhmerNumeral(khmerInfo.day)} {khmerInfo.moonPhaseNameKm} ខែ
+                {khmerInfo.monthNameKm} ឆ្នាំ{khmerInfo.animalYearNameKm}
               </span>
             </div>
 
@@ -245,18 +241,14 @@ export function MoonPhaseView({
           {/* 4 Telemetry Metrics */}
           <div className="grid grid-cols-2 gap-3">
             <div className="p-4 rounded-2xl bg-[#0B1930]/85 border border-white/5 shadow-sm">
-              <span className="text-xs text-[#A9B8CC] block mb-1">
-                {t.explorer.illumination}
-              </span>
+              <span className="text-xs text-[#A9B8CC] block mb-1">{t.explorer.illumination}</span>
               <span className="text-lg sm:text-xl font-bold text-[#F4F3EF]">
                 {formatIllumination(activeIllumPct / 100, language)}
               </span>
             </div>
 
             <div className="p-4 rounded-2xl bg-[#0B1930]/85 border border-white/5 shadow-sm">
-              <span className="text-xs text-[#A9B8CC] block mb-1">
-                {t.explorer.moonAge}
-              </span>
+              <span className="text-xs text-[#A9B8CC] block mb-1">{t.explorer.moonAge}</span>
               <span className="text-lg sm:text-xl font-bold text-[#F4F3EF]">
                 {astroInfo.moonAgeDays} ថ្ងៃ
               </span>
@@ -272,9 +264,7 @@ export function MoonPhaseView({
             </div>
 
             <div className="p-4 rounded-2xl bg-[#0B1930]/85 border border-white/5 shadow-sm">
-              <span className="text-xs text-[#A9B8CC] block mb-1">
-                មុំដំណាក់កាល (Angle)
-              </span>
+              <span className="text-xs text-[#A9B8CC] block mb-1">មុំដំណាក់កាល (Angle)</span>
               <span className="text-lg sm:text-xl font-bold text-[#E8BF70] font-mono">
                 {activeDegrees.toFixed(1)}&deg;
               </span>
@@ -306,8 +296,8 @@ export function MoonPhaseView({
           <div className="p-4 rounded-2xl bg-[#F4F0E6] dark:bg-[#142A4D]/30 border border-[#C59B27]/20 dark:border-white/10 text-xs text-[#5D6B82] dark:text-[#A9B8CC] flex items-start gap-2.5">
             <Info className="w-4 h-4 text-[#9A7316] dark:text-[#E8BF70] shrink-0 mt-0.5" />
             <p className="leading-relaxed">
-              ដំណាក់កាលព្រះចន្ទខាងលើ គណនាតាមគន្លងព្រះចន្ទជាក់ស្ដែង។
-              ចំណែកថ្ងៃខែចន្ទគតិខ្មែរ គណនាតាមក្បួនហោរាសាស្ត្រប្រពៃណី ដូច្នេះអាចខុសគ្នាមួយថ្ងៃម្ដងម្កាល។
+              ដំណាក់កាលព្រះចន្ទខាងលើ គណនាតាមគន្លងព្រះចន្ទជាក់ស្ដែង។ ចំណែកថ្ងៃខែចន្ទគតិខ្មែរ
+              គណនាតាមក្បួនហោរាសាស្ត្រប្រពៃណី ដូច្នេះអាចខុសគ្នាមួយថ្ងៃម្ដងម្កាល។
             </p>
           </div>
         </div>

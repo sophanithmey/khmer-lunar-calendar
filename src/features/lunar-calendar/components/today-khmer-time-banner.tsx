@@ -10,10 +10,7 @@ interface TodayKhmerTimeBannerProps {
   className?: string;
 }
 
-export function TodayKhmerTimeBanner({
-  onSelectToday,
-  className = ''
-}: TodayKhmerTimeBannerProps) {
+export function TodayKhmerTimeBanner({ onSelectToday, className = '' }: TodayKhmerTimeBannerProps) {
   const { language } = useLanguage();
   const [currentDate, setCurrentDate] = useState<Date>(new Date());
 
